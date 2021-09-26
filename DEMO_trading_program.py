@@ -50,38 +50,47 @@ y_list = []
 for y in find_tops.tops(values):
     y_list.append(y)
     x_list.append(show_x(y))
+print(x_list)
+
 tops_coordinates.append(y_list)
 tops_coordinates.append(x_list)
 print('Done!')
 print(tops_coordinates)
 # %%
-
+print('*'*10)
+print(y_list)
 print(x_list)
+print('*'*10)
 print('Checking if correct...')
 anomaly = []
+indexes = []
 for i in range(1, len(x_list)):
     if x_list[i] < x_list[i-1]:
         anomaly.append(x_list[i])
-    
+        indexes.append(i)
+        
 for i in anomaly:
     if i in x_list:
         x_list.remove(i)
         
-print(anomaly)
+for i in indexes:
+    y_list.remove(y_list[i])
+print('*'*10)
+print(y_list)
 print(x_list)
 # %%
-print(x_to_y_dict)
-cure = []
-for i in anomaly:
-    cure.append(second[i])
-    del second[i]
+# print(x_to_y_dict)
+# cure = []
+# for i in anomaly:
+#     cure.append(second[i])
+#     del second[i]
     
-print(cure)
+# print(cure)
 
-for c in cure:
-    x_list.append(show_x(c))
-# %%
-print(x_to_y_dict.items())
+# for c in cure:
+#     x_list.append(show_x(c))
+# # %%
+# print(x_to_y_dict.items())
     
     
     
